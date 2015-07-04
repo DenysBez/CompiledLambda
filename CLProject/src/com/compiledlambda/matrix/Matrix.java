@@ -80,7 +80,7 @@ public class Matrix {
 		return this;
 	}
 	
-	public Matrix inverse() {
+	public Matrix inverse() {			
 		double det = det();
 		if(det != 0) {
 			if(getRowsLength() == 2 && getColumntLength() == 2) {
