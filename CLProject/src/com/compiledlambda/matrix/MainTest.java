@@ -13,17 +13,8 @@ public class MainTest {
 				matrix.set(row, column, row + 1 + column);
 			}
 		}
-		
-		System.out.println("det(A): " + matrix.det());
-		
+				
 		System.out.println(matrix);
-		
-		System.out.println(matrix.scalarMultiply(2));
-		
-		System.out.println("det(A): " + matrix.det());
-		
-		System.out.println("inverse:" + matrix.inverse());
-		
 	}
 
 }
