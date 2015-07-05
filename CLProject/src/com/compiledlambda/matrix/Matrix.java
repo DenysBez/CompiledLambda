@@ -66,6 +66,16 @@ public class Matrix {
 		return this.matrix[0].length;
 	}
 	
+	
+	public Matrix exchangeRows(int firstRowIdx, int secondRowIdx) {
+		double[] firstRow = this.matrix[firstRowIdx];
+		double[] secondRow = this.matrix[secondRowIdx];
+		
+		this.matrix[firstRowIdx] = secondRow;
+		this.matrix[secondRowIdx] = firstRow;
+		
+		return this;
+	}
 
 	/**
 	 * Scalar multiplication, changes state of current matrix

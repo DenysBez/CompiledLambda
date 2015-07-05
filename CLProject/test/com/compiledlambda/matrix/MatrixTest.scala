@@ -10,36 +10,19 @@ import org.hamcrest.core.IsEqual.equalTo
 class MatrixTest {
 
   @Test def isSquareMatrix() {
-    val n = 2;
-    val m = 2;
-
-    val matrix = new Matrix(n, m)
+    val matrix = initMatrix()
 
     assertTrue(matrix.isSquare())
   }
 
   @Test def calculateDet() {
-    val n = 2;
-    val m = 2;
-
-    val matrix = new Matrix(n, m)
-
-    for (row <- 0 until n; column <- 0 until m) {      
-        matrix.set(row, column, row + 1 + column);      
-    }
+    val matrix = initMatrix()
     
     assertThat(matrix.det(), is[Double](equalTo(-1.0)))    
   }
   
-  @Test def scalaMultiply() {
-    val n = 2;
-    val m = 2;
-
-    val matrix = new Matrix(n, m)
-
-    for (row <- 0 until n; column <- 0 until m) {      
-        matrix.set(row, column, row + 1 + column);      
-    }
+  @Test def scalarMultiply() {
+    val matrix = initMatrix()
     
     matrix.scalarMultiply(2);
     
@@ -48,23 +31,36 @@ class MatrixTest {
   
   
   @Test def inverse() {
+    val matrix = initMatrix()
+    
+    val inverse = matrix.inverse()
+    
+    assertThat(inverse.ent(0, 0), is[Double](equalTo(-3.0)))
+    assertThat(inverse.ent(0, 1), is[Double](equalTo(2.0)))
+    assertThat(inverse.ent(1, 0), is[Double](equalTo(2.0)))
+    assertThat(inverse.ent(1, 1), is[Double](equalTo(-1.0)))    
+  }
+  
+  @Test def exchangeRows() {
+    val matrix = initMatrix()
+    matrix.exchangeRows(0, 1);
+    
+    assertThat(matrix.ent(0, 0), is[Double](equalTo(2.0)))
+    assertThat(matrix.ent(0, 1), is[Double](equalTo(3.0)))
+    assertThat(matrix.ent(1, 0), is[Double](equalTo(1.0)))
+    assertThat(matrix.ent(1, 1), is[Double](equalTo(2.0)))
+  }
+  
+  def initMatrix() : Matrix = {
     val n = 2;
     val m = 2;
 
     val matrix = new Matrix(n, m)
 
     for (row <- 0 until n; column <- 0 until m) {      
-        matrix.set(row, column, row + 1 + column);      
-    }
+        matrix.set(row, column, row + 1 + column)      
+    }    
     
-    matrix.scalarMultiply(2);
-    
-    val inverse = matrix.inverse()
-    
-    assertThat(inverse.ent(0, 0), is[Double](equalTo(-1.5)))
-    assertThat(inverse.ent(0, 1), is[Double](equalTo(1.0)))
-    assertThat(inverse.ent(1, 0), is[Double](equalTo(1.0)))
-    assertThat(inverse.ent(1, 1), is[Double](equalTo(-0.5)))
-    
+    return matrix
   }
 }
