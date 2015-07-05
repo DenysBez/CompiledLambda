@@ -41,6 +41,12 @@ class MatrixTest {
     assertThat(inverse.ent(1, 1), is[Double](equalTo(-1.0)))    
   }
   
+  @Test def dim() {
+    val matrix = initMatrix()
+    
+    assertThat(matrix.dim(), is[Int](equalTo(4)))
+  }
+  
   @Test def exchangeRows() {
     val matrix = initMatrix()
     matrix.exchangeRows(0, 1);

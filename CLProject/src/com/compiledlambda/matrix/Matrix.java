@@ -66,6 +66,9 @@ public class Matrix {
 		return this.matrix[0].length;
 	}
 	
+	public int dim() {
+		return getRowsLength() * getColumntLength();
+	}
 	
 	public Matrix exchangeRows(int firstRowIdx, int secondRowIdx) {
 		double[] firstRow = this.matrix[firstRowIdx];
