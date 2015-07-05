@@ -1,20 +1,20 @@
 package com.compiledlambda.matrix
 
-import org.junit.Assert._
-import org.junit.Test
+/*import org.junit.Assert._
+import org.junit.Test*/
 import org.junit.Before
-import org.hamcrest.core.Is._
-import org.hamcrest.core.IsEqual.equalTo
+/*import org.hamcrest.core.Is._
+import org.hamcrest.core.IsEqual.equalTo*/
 
 
 class MatrixTest {
 
-  @Test def isSquareMatrix() {
+  /*@Test def isSquareMatrix() {
     val matrix = initMatrix()
 
     assertTrue(matrix.isSquare())
-  }
-
+  }*/
+/*
   @Test def calculateDet() {
     val matrix = initMatrix()
     
@@ -55,7 +55,7 @@ class MatrixTest {
     assertThat(matrix.ent(0, 1), is[Double](equalTo(3.0)))
     assertThat(matrix.ent(1, 0), is[Double](equalTo(1.0)))
     assertThat(matrix.ent(1, 1), is[Double](equalTo(2.0)))
-  }
+  }*/
   
   def initMatrix() : Matrix = {
     val n = 2;
