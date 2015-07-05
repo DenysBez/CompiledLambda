@@ -59,11 +59,11 @@ public class Matrix {
 	}
 
 	public int getColumntLength() {
-		return this.matrix.length;
+		return this.matrix[0].length;
 	}
 	
 	public int getRowsLength() {
-		return this.matrix[0].length;
+		return this.matrix.length;
 	}
 	
 	public int dim() {
